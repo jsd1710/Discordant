@@ -37,7 +37,6 @@ namespace Discordant
 
         private async void testButton_Click(object sender, RoutedEventArgs e)
         {
-            MainTest.Text = MainTest.Text + "1";
             string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
             MainTest.Text = await http.HttpPost("auth/login", user_token);
         }
