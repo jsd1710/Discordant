@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="Discordant.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Discordant"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="MainTest" Margin="36,273,10,311" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+            <Run Text="Test"/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <Button x:Name="testButton" Content="Click to Change!" Height="36" Margin="36,0,0,243" VerticalAlignment="Bottom" Width="130" Click="testButton_Click"/>
+        <PasswordBox x:Name="passwordBox" Height="15" Margin="36,119,84,0" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition" KeyDown="passwordBox_KeyDown" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="20" Margin="36,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97">
+            <Run Text="Password:"/>
+            <LineBreak/>
+            <Run Text=":"/>
+        </TextBlock>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="20" Margin="36,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63">
+            <Run Text="Email:"/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <TextBox x:Name="email_textbox" Height="35" Margin="36,52,84,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition" AutomationProperties.IsRequiredForForm="True"/>
+
+    </Grid>
+</Page>
