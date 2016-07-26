@@ -27,18 +27,16 @@ namespace Discordant
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        HTTPSingleton http;
 
         public MainPage()
         {
             this.InitializeComponent();
-            http = HTTPSingleton.Instance;
         }
 
         private async void testButton_Click(object sender, RoutedEventArgs e)
         {
             string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
-            MainTest.Text = await http.HttpPost("auth/login", user_token);
+            MainTest.Text = user_token;
         }
 
         private async void passwordBox_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -46,7 +44,7 @@ namespace Discordant
             if (e.Key.ToString() == "Enter")
             {
                 string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
-                MainTest.Text = await http.HttpPost("auth/login", user_token);
+                MainTest.Text = user_token;
             }
         }
     }
