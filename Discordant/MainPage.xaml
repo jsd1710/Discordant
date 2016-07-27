@@ -8,19 +8,20 @@
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="642">
+        <TextBlock x:Name="TitleBlock1" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" FontWeight="Bold"></TextBlock>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontWeight="Bold">
             <Run Text="Email:"/>
                 <LineBreak/>
             <Run/>
         </TextBlock>
-        <TextBox x:Name="email_textbox" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="email_textbox" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" AutomationProperties.IsRequiredForForm="True"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="97">
             <Run FontWeight="Bold" Text="Password"/>
             <Run Text=":"/>
             <LineBreak/>
             <Run Text=":"/>
         </TextBlock>
-        <PasswordBox x:Name="passwordBox" Height="15" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition" KeyDown="passwordBox_KeyDown" AutomationProperties.IsRequiredForForm="True"/>
+        <PasswordBox x:Name="passwordBox" Height="15" VerticalAlignment="Top" KeyDown="passwordBox_KeyDown" AutomationProperties.IsRequiredForForm="True"/>
         <TextBlock x:Name="output_label" TextWrapping="Wrap" Height="20">
             <Run FontWeight="Bold" Text="Output"/>
             <Run Text=":"/>

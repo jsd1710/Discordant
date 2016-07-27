@@ -32,19 +32,26 @@ namespace Discordant
         {
             this.InitializeComponent();
         }
+        private async Task login()
+        {
+            string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
+            TitleBlock1.Text = user_token;
+            HTTPSingleton http = HTTPSingleton.Instance;
+            Dictionary<string, string> user_token_obj = JsonConvert.DeserializeObject<Dictionary<string, string>>(user_token);
+            http.addHttpAuthenticationHeader(user_token_obj["token"]);
+            MainTest.Text = await Task.Run(() => http.HttpGet("users/@me"));
+        } 
 
         private async void testButton_Click(object sender, RoutedEventArgs e)
         {
-            string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
-            MainTest.Text = user_token;
+            await login();
         }
 
         private async void passwordBox_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key.ToString() == "Enter")
             {
-                string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
-                MainTest.Text = user_token;
+                await login();
             }
         }
     }

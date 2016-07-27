@@ -19,7 +19,15 @@ namespace Discordant.src.Authentication
                 password = password
             };
             var credentials_json = JsonConvert.SerializeObject(credentials);
-            return await Task.Run(() => http.HttpPost("auth/login", credentials_json));
+            string user_token = await Task.Run(async () => {
+                var response = await http.HttpPost("auth/login", credentials_json);
+                while (!response.Contains("token"))
+                {
+                    await Task.Delay(TimeSpan.FromMilliseconds(1));
+                }
+                return response;
+            });
+            return user_token;
         }
     }
     public class Credentials

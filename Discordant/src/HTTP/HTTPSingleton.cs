@@ -22,7 +22,6 @@ namespace Discordant.src.HTTP
             client.DefaultRequestHeaders
               .Accept
               .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
         }
 
         public static HTTPSingleton Instance
@@ -64,6 +63,11 @@ namespace Discordant.src.HTTP
                 result = await httpResponse.Content.ReadAsStringAsync();
             }
             return result;
+        }
+
+        public void addHttpAuthenticationHeader(string header)
+        {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(header);
         }
     }
 }
