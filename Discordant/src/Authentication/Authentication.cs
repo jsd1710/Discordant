@@ -27,7 +27,10 @@ namespace Discordant.src.Authentication
                 }
                 return response;
             });
-            return user_token;
+            Dictionary<string, string> user_token_obj = JsonConvert.DeserializeObject<Dictionary<string, string>>(user_token);
+            http.addHttpAuthenticationHeader(user_token_obj["token"]);
+
+            return user_token_obj["token"];
         }
     }
     public class Credentials

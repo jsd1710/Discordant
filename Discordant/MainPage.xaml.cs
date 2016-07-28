@@ -37,8 +37,6 @@ namespace Discordant
             string user_token = await Authentication.login(email_textbox.Text, passwordBox.Password);
             TitleBlock1.Text = user_token;
             HTTPSingleton http = HTTPSingleton.Instance;
-            Dictionary<string, string> user_token_obj = JsonConvert.DeserializeObject<Dictionary<string, string>>(user_token);
-            http.addHttpAuthenticationHeader(user_token_obj["token"]);
             MainTest.Text = await Task.Run(() => http.HttpGet("users/@me"));
         } 
 
